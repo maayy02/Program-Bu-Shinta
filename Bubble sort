@@ -1,0 +1,52 @@
+import java.util.Scanner;
+public class BubbleGimang0 {
+    public static void main(String[] args) {
+        String lagi;
+
+        int a=0; // variabel a = 0
+        
+         do {
+        Scanner input = new Scanner(System.in); //berfungsi untuk mencetak hasil dari data
+        System.out.print("Berapa data yang akan di urutkan? "); //perintah untuk menampilkan 
+        int banyak = input.nextInt(); //berfungsi untuk masukan array
+        int []angka = new int [banyak]; // variabel array nya itu angka
+       
+        
+        // bagian Input data
+        for  (a=0; a<banyak;)//  //perintah Looping while
+        {System.out.print("Bilangan ke- "+(a+1)+" =  "); //perintah input bilangan yang akan kita masukan
+        angka[a]=input.nextInt();// setiap data yang kita input tadi di tampung di variabel array yaitu angka
+        a++;
+        }
+        
+        
+        //proses pertukaran data
+        for (a=0; a<banyak; a++ )// perintah Looping for, disini akan terjadi looping sesuai banyak  data yang akan kita input
+        {
+            for (int b=0; b<banyak-1; b++)// disini kita tambahkan variabel 
+          {   
+            if (angka[b]>angka[b+1])//perintah seleksi, apakah bilangan saat ini lebih besar dari bilangan selanjut nya yang akan terjadi sebanyak data yang dinput -1
+                                    //jika true maka lakukan pertukaran data     Jika ingin Output menjadi descending ubah tanda menjadi<          
+            {int temp = angka[b];   //kita buat variabel temp
+            angka[b] = angka[b+1];
+            angka[b+1] = temp;
+            }      
+         
+          }
+ 
+       }
+        // Output
+        for (a=0;a<banyak;a++)
+        {
+            System.out.print(angka[a]+"  ");
+            
+        }
+        System.out.println();
+        System.out.print("Input ulang data? (Y/T) =");
+        
+        Scanner y = new Scanner (System.in);
+        lagi = y.nextLine().toUpperCase();// kalau lagi berarti tinggal tekan Y dan akan terjadi perulangan
+        } while ("Y".equals(lagi));
+    }
+    
+}
