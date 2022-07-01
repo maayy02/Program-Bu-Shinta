@@ -1,0 +1,82 @@
+import java.util.*;
+
+public class QueueBank {
+    String name, necessity;
+    int id;
+    QueueBank next;
+    static Scanner inputInt = new Scanner(System.in);
+    static Scanner inputStr = new Scanner(System.in);
+
+    public void input(){
+        System.out.print("Masukkan id        : ");
+        id = inputInt.nextInt();
+        System.out.print("Masukkan nama      : ");
+        name = inputStr.nextLine();
+        System.out.print("Masukkan keperluan : ");
+        necessity = inputStr.nextLine();
+    }
+
+    public void read(){
+        System.out.println("|| " + id + "\t|| " + name + " \t|| " +necessity+" \t\t|| ");
+    }
+
+    public static void main(String[] args) {
+        Linked queue = new Linked();
+        int menu = 0;
+        while(menu != 4){
+            System.out.print("1. Enqueue\n2. Dequeue\n3. view\n4. Exit\npilih : ");
+            menu = inputInt.nextInt();
+            switch (menu) {
+                case 1:
+                    queue.add();
+                    break;
+                case 2:
+                    queue.remove();
+                    break;
+                case 3:
+                    queue.peek();
+                    break;
+                case 4:
+                    System.out.println("----keluar-----");
+                    break;
+                default:
+                    System.out.println("--apa yang kau pilih le baca menu--");
+                    break;
+            }
+        }
+    }
+}
+class Linked{
+     public void peek() {
+        if(head==null)System.out.println("- Kosong -");
+        else{ 
+            System.out.println("|| Id \t|| Nama \t|| Keperluan \t||");
+            for(QueueBank a=head; a!=null; a=a.next) a.read();
+        } 
+    }
+     
+    QueueBank head, tail;
+    public Linked(){
+        head = null;
+        tail = null;
+    }
+    public void add() {
+        QueueBank baru = new QueueBank();
+        baru.input();
+        if(head == null){
+            head = baru;
+        }else {
+            tail.next=baru;
+        }
+        tail=baru;
+    }
+    public void remove() {
+        if(head==null)System.out.println("- Kosong -");
+        else{
+            System.out.println("Keluar Data Dengan Id : "+head.id);
+            head=head.next;
+        }
+    }
+
+   
+}
