@@ -1,0 +1,17 @@
+import java.util.Stack;
+public class Push {
+    public static void main(String[] args) {
+       Stack<Integer> tumpukan= new Stack<>();
+        boolean hasil= tumpukan.empty();
+        System.out.println("apakah Stack kosong?"+ hasil);
+        
+        tumpukan.push(2);
+        tumpukan.push(1);
+        
+        System.out.println("Element dalam stack:"+ tumpukan);
+   
+        tumpukan.pop();
+        System.out.println("Element dalam stack:"+ tumpukan);
+    }
+    
+}
